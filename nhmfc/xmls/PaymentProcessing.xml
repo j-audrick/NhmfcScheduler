@@ -1,0 +1,85 @@
+<ProcessEngineOject id="0">
+   <name id="1">Payment Processing</name>
+   <workflowID id="2"></workflowID>
+   <turnAroundTimeAmount id="3">14</turnAroundTimeAmount>
+   <turnAroundTimeUnit id="4">DAY</turnAroundTimeUnit>
+   <type id="5">MAINMAP</type>
+   <overdueEmail id="6">
+      <to id="7">sampleTo@gmail.com</to>
+      <from id="8">sampleFrom@gmail.com</from>
+      <subject id="9">Sample Email</subject>
+      <body id="10">Sample Body</body>
+   </overdueEmail>
+   <steps class="java.util.ArrayList" id="11">
+      <ProcessEngineOject id="12">
+         <name id="13">Prepare/Update BUR</name>
+         <turnAroundTimeAmount id="14">6</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type id="15">STEP</type>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="16">
+         <name id="17">CBD: Check Requirements/Check DV</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit id="18">HOUR</turnAroundTimeUnit>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="19">
+         <name id="20">CAD: Post to GP</name>
+         <turnAroundTimeAmount id="21">3</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="18"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="22">
+         <name id="23">Office of the President Approve DV</name>
+         <turnAroundTimeAmount id="24">1</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="25">
+         <name id="26">Executive Vice President Approve DV</name>
+         <turnAroundTimeAmount ref="24"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="27">
+         <name id="28">Group Head concerned Approve DV</name>
+         <turnAroundTimeAmount ref="24"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="29">
+         <name id="30">Department Manager Approve DV</name>
+         <turnAroundTimeAmount ref="24"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="31">
+         <name id="32">CASH: Print Cheque</name>
+         <turnAroundTimeAmount ref="21"/>
+         <turnAroundTimeUnit ref="18"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="33">
+         <name id="34">Approving Office: Sign Cheque</name>
+         <turnAroundTimeAmount id="35">2</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="18"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="36">
+         <name id="37">Requestor: Receive Cheque</name>
+         <turnAroundTimeAmount id="38">5</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="18"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+   </steps>
+</ProcessEngineOject>

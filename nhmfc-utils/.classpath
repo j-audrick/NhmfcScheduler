@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/client-download.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/com.ibm.websphere.appserver.api.json-1.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/isannotvalidator.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/Jace.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/Jace_t.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/joda-time-2.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/log4j.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/nACCE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/p8cel10n.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/p8cjares.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/pe.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/pe_t.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/pe3pt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/pe3pt_t.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/peResources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/peResources_t.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/pw.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/simple-xml-2.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/stax-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/vwpanel.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/xlxpScanner.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/xlxpScannerUtils.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

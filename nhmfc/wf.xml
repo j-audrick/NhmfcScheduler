@@ -1,0 +1,26 @@
+<workflow title="Title 1">  --> Workflow Name
+   <wfTAT>96</wfTAT>        --> Workflow TAT in hours
+   <step step="Step 1">     --> Step 1 in workflow
+      <stepTAT>16</stepTAT>  --> TAT in hours
+   </step>
+    <step step="Step 2">    --> Step 2 in workflow
+      <stepTAT>16</stepTAT>  --> TAT in hours
+   </step>
+    <step step="Step 3">    --> Step 3 in workflow
+      <stepTAT>16</stepTAT>  --> TAT in hours
+   </step>
+    <step step="Step 4">    --> Step 4 in workflow
+      <stepTAT>16</stepTAT>  --> TAT in hours
+   </step>
+    <step step="Step 5">    --> Step 5 in workflow
+      <stepTAT>16</stepTAT>  --> TAT in hours
+   </step>
+    <step step="Step 6">    --> Step 6 in workflow
+      <stepTAT>16</stepTAT>  --> TAT in hours
+   </step>
+</workflow>
+
+
+
+
+

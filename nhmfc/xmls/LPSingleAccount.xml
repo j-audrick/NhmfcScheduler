@@ -1,0 +1,127 @@
+<ProcessEngineOject id="0">
+   <name id="1">Loan Purchasing Process</name>
+   <workflowID id="2"></workflowID>
+   <turnAroundTimeAmount id="3">76</turnAroundTimeAmount>
+   <turnAroundTimeUnit id="4">DAY</turnAroundTimeUnit>
+   <type id="5">MAINMAP</type>
+   <overdueEmail id="6">
+      <to id="7">sampleTo@gmail.com</to>
+      <from id="8">sampleFrom@gmail.com</from>
+      <subject id="9">Sample Email</subject>
+      <body id="10">Sample Body</body>
+   </overdueEmail>
+   <steps class="java.util.ArrayList" id="11">
+      <ProcessEngineOject id="12">
+         <name id="13">AVD: Evaluate TD and Assess Completeness of Documents</name>
+         <turnAroundTimeAmount id="14">1</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type id="15">STEP</type>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="16">
+         <name id="17">Send Memo to Originator</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="18">
+         <name id="19">MAD: Receive and evaluate documents</name>
+         <turnAroundTimeAmount id="20">2</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="21">
+         <name id="22">AVD: Create Appraisal Memo</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="23">
+         <name id="24">Return to Originator</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="25">
+         <name id="26">VP,SEC: Sign PLA, DOU, DARR</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="27">
+         <name id="28">MAD/PPD: Issue certificate of loan docs</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="29">
+         <name id="30">MAD: Create memo and resolution for CRECOM</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="31">
+         <name id="32">MAD/PPD: Notify originator, await notarization</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="33">
+         <name id="34">MAD: Create letter of disapproval</name>
+         <turnAroundTimeAmount ref="20"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="35">
+         <name id="36">CRECOM: Receive Memo of valuation</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="37">
+         <name id="38">MAD: Receive IMR</name>
+         <turnAroundTimeAmount ref="20"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="39">
+         <name id="40">Custodian: LD for safekeeping</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="41">
+         <name id="42">MAD/PPD: Create Letter of Conditional Approval</name>
+         <turnAroundTimeAmount ref="20"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="43">
+         <name id="44">Custodian: For safekeeping</name>
+         <turnAroundTimeAmount id="45">5</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="46">
+         <name id="47">MAD: End</name>
+         <turnAroundTimeAmount ref="45"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+   </steps>
+</ProcessEngineOject>

@@ -1,0 +1,43 @@
+<ProcessEngineOject id="0">
+   <name id="1">ADMIN: File Retrieval (Records Management)</name>
+   <workflowID id="2"></workflowID>
+   <turnAroundTimeAmount id="3">57600</turnAroundTimeAmount>
+   <turnAroundTimeUnit id="4">DAY</turnAroundTimeUnit>
+   <type id="5">MAINMAP</type>
+   <overdueEmail id="6">
+      <to id="7">sampleTo@gmail.com</to>
+      <from id="8">sampleFrom@gmail.com</from>
+      <subject id="9">Sample Email</subject>
+      <body id="10">Sample Body</body>
+   </overdueEmail>
+   <steps class="java.util.ArrayList" id="11">
+      <ProcessEngineOject id="12">
+         <name id="13">ADMIN: Check Document</name>
+         <turnAroundTimeAmount id="14">5</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type id="15">STEP</type>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="16">
+         <name id="17">Requestor: Document not Available</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="18">
+         <name id="19">Requestor: Access Document</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="20">
+         <name id="21">ADMIN: Receive and Remove access of Requestor</name>
+         <turnAroundTimeAmount ref="14"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+   </steps>
+</ProcessEngineOject>

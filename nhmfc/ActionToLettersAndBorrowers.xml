@@ -1,0 +1,39 @@
+<ProcessEngineOject id="0">
+   <name id="1">Action To Letters Process</name>
+   <workflowID id="2"></workflowID>
+   <turnAroundTimeAmount id="3">3</turnAroundTimeAmount>
+   <turnAroundTimeUnit id="4">DAY</turnAroundTimeUnit>
+   <type id="5">MAINMAP</type>
+   <overdueEmail id="6">
+      <to id="7">sampleTo@gmail.com</to>
+      <from id="8">sampleFrom@gmail.com</from>
+      <subject id="9">Sample Email</subject>
+      <body id="10">Sample Body</body>
+   </overdueEmail>
+   <steps class="java.util.ArrayList" id="11">
+      <ProcessEngineOject id="12">
+         <name id="13">Receive and Provide Comments</name>
+         <turnAroundTimeAmount id="14">2</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type id="15">STEP</type>
+         <overdueEmail id="16">
+            <to id="17">sampleTo1@gmail.com</to>
+            <from id="18">sampleFrom1@gmail.com</from>
+            <subject id="19">Sample Email1</subject>
+            <body id="20">Sample Body1</body>
+         </overdueEmail>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="21">
+         <name id="22">Receive Document</name>
+         <turnAroundTimeAmount id="23">1</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail id="24">
+            <to ref="7"/>
+            <from ref="8"/>
+            <subject ref="9"/>
+            <body ref="10"/>
+         </overdueEmail>
+      </ProcessEngineOject>
+   </steps>
+</ProcessEngineOject>

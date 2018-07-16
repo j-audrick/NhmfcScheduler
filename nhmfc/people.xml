@@ -1,0 +1,7 @@
+<workFlows>
+   <Workflow>
+      <title>Try Workflow</title>
+      <WFStep>Step 1</WFStep>
+      <stepTAT>2</stepTAT>
+   </Workflow>
+</workFlows>

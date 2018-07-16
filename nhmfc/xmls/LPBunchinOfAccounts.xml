@@ -1,0 +1,78 @@
+<ProcessEngineOject id="0">
+   <name id="1">LoanPurchasing Part2</name>
+   <workflowID id="2"></workflowID>
+   <turnAroundTimeAmount id="3">24</turnAroundTimeAmount>
+   <turnAroundTimeUnit id="4">DAY</turnAroundTimeUnit>
+   <type id="5">MAINMAP</type>
+   <overdueEmail id="6">
+      <to id="7">sampleTo@gmail.com</to>
+      <from id="8">sampleFrom@gmail.com</from>
+      <subject id="9">Sample Email</subject>
+      <body id="10">Sample Body</body>
+   </overdueEmail>
+   <steps class="java.util.ArrayList" id="11">
+      <ProcessEngineOject id="12">
+         <name id="13">MAD:Payment Processing</name>
+         <turnAroundTimeAmount id="14">6</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type id="15">STEP</type>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="16">
+         <name id="17">MAD: Await PDC</name>
+         <turnAroundTimeAmount id="18">2</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="19">
+         <name id="20">CASH: Release Cheque</name>
+         <turnAroundTimeAmount id="21">1</turnAroundTimeAmount>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="22">
+         <name id="23">MAD: Create memo and resolution for CRECOM</name>
+         <turnAroundTimeAmount ref="21"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="24">
+         <name id="25">Custodian: receive takeout documents</name>
+         <turnAroundTimeAmount ref="21"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="26">
+         <name id="27">Insurance:Enrollment of accounts</name>
+         <turnAroundTimeAmount ref="21"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="28">
+         <name id="29">COCMD/SAMSU:Wait for Due Dates</name>
+         <turnAroundTimeAmount ref="21"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="30">
+         <name id="31">RASD: Send PDC and Memo to Regional</name>
+         <turnAroundTimeAmount ref="18"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+      <ProcessEngineOject id="32">
+         <name id="33">Requestor:Notify process complete</name>
+         <turnAroundTimeAmount ref="18"/>
+         <turnAroundTimeUnit ref="4"/>
+         <type ref="15"/>
+         <overdueEmail ref="6"/>
+      </ProcessEngineOject>
+   </steps>
+</ProcessEngineOject>
