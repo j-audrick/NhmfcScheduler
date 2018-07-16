@@ -96,9 +96,15 @@ public class Utilities {
 			}
 		}
 		
+		System.out.println(duedate.getTime().toString());
+		System.out.println(TAT);
+		
 		if (isHoliday(duedate, holdaylist) < 32400) {
 			TAT = TAT + isHoliday(duedate, holdaylist);
 		}
+		System.out.println(TAT);
+		System.out.println(duedate.getTime().toString());
+		System.out.println("----");
 		// if the due date falls on holiday or weekend - change to the earliest
 		// acceptable date and set to 8AM (start of working hours) of that day
 
@@ -134,6 +140,7 @@ public class Utilities {
 			deadline = duedate.getTime().toString(); // end - return this
 		} else {
 			while (TAT >= 32400) { // 32400 is equal to 9 hrs equal to 1 day
+				System.out.println(duedate.getTime().toString());
 				if (isHoliday(duedate, holdaylist) == 32400 || isWeekEnd(duedate)) {
 					while (isHoliday(duedate, holdaylist) == 32400 || isWeekEnd(duedate)) {
 						duedate.add(Calendar.DATE, 1);
@@ -260,6 +267,7 @@ public class Utilities {
 				break;
 			}
 		}
+		System.out.println(totalMins);
 		return totalMins;
 	}
 
