@@ -28,10 +28,12 @@ public class DCMSLogs {
 		Connection ceCon = Utilities.getCEConnectionHTTP();
 		if (vwSession != null) {
 			List<String[]> holdaylist = Utilities.hoList(ceCon);
+			
 			Date start = new Date();
 			System.out.println("--------------------------------------------------------------------------------");
 			System.out.println("Running @ " + start);
-			Map<Integer, Map<String, String>> logdata = Utilities.logFetch(vwSession);
+			//Map<Integer, Map<String, String>> logdata = Utilities.logFetch(vwSession);
+			
 			Date endd = new Date();
 			System.out.println("Itr Elapsed for Log Fetch: " + ChronoUnit.MILLIS.between(start.toInstant(), endd.toInstant()) +" Millis");
 			Map<Integer, Map<String, String>> data = Utilities.RosterFetch(vwSession);
@@ -69,7 +71,8 @@ public class DCMSLogs {
 							}
 							
 							String ddate = "";
-							double stepRen = Utilities.accumMinRen(entry.getValue().get("F_WobNum").toString(),entry.getValue().get("StepName").toString(),logdata,holdaylist);
+							//double stepRen = Utilities.accumMinRen(entry.getValue().get("F_WobNum").toString(),entry.getValue().get("StepName").toString(),logdata,holdaylist);
+							double stepRen = 0;
 							
 							double tat = (Tat > (60 * stepRen) 
 									? Tat - (60 * stepRen) 
@@ -227,13 +230,14 @@ public class DCMSLogs {
 							}
 							
 							Utilities.updateStepMinutesRendered(entry.getValue().get("F_WobNum").toString(), entry.getValue().get("PrevEndTime").toString(), vwSession, stepRen, holdaylist);
-							if(Utilities.isDatedef(entry.getValue().get("xDeadline").toString())) {
-								Utilities.updateWorkItems(entry.getValue().get("F_WobNum").toString(), ddate, xStatus, vwSession);
-								Utilities.updateWorkflowTat(entry.getValue().get("F_WobNum").toString(), wfddate, wfStatus, vwSession);
+							Utilities.updateWorkItems(entry.getValue().get("F_WobNum").toString(), ddate, xStatus, vwSession);
+							Utilities.updateWorkflowTat(entry.getValue().get("F_WobNum").toString(), wfddate, wfStatus, vwSession);
+/*							if(Utilities.isDatedef(entry.getValue().get("xDeadline").toString())) {
+
 							}else {
 								Utilities.updateWorkItems(entry.getValue().get("F_WobNum").toString(), xStatus, vwSession);
 								Utilities.updateWorkflowTat(entry.getValue().get("F_WobNum").toString(), wfStatus, vwSession);
-							}
+							}*/
 						}
 					}
 				}
