@@ -123,57 +123,57 @@ public class MailSenderWI implements Runnable {
 		if (rec == 50) {
 			this.to = "dcms@nhmfc.gov.ph";
 		} else if (rec == 52) { // OP
-			this.to = "felix.bustos.dcms@nhmfc.gov.ph";
+			this.to = "op.dcms@nhmfc.gov.ph";
 		} else if (rec == 151) { // Admin
-			this.to = "lourdes.bacani.dcms@nhmfc.gov.ph";
+			this.to = "admin.dcms@nhmfc.gov.ph";
 		} else if (rec == 152) { // AMD
-			this.to = "romeo.roldan.dcms@nhmfc.gov.ph";
+			this.to = "amd.dcms@nhmfc.gov.ph";
 		} else if (rec == 170) { // AUDITRISK
-			this.to = "june.ramos.dcms@nhmfc.gov.ph";
+			this.to = "auditrisk.dcms@nhmfc.gov.ph";
 		} else if (rec == 173) { // AVD
-			this.to = "lourdes.bacani.dcms@nhmfc.gov.ph";
+			this.to = "avd.dcms@nhmfc.gov.ph";
 		} else if (rec == 155) { // BOARD
-			this.to = "felix.bustos.dcms@nhmfc.gov.ph";
+			this.to = "board.dcms@nhmfc.gov.ph";
 		} else if (rec == 165) { // CAD
-			this.to = "romeo.roldan.dcms@nhmfc.gov.ph";
+			this.to = "cad.dcms@nhmfc.gov.ph";
 		} else if (rec == 156) { // CAMG
-			this.to = "june.ramos.dcms@nhmfc.gov.ph";
+			this.to = "camg.dcms@nhmfc.gov.ph";
 		} else if (rec == 174) { // CASH
-			this.to = "romeo.roldan.dcms@nhmfc.gov.ph";
+			this.to = "cash.dcms@nhmfc.gov.ph";
 		} else if (rec == 163) { // CBD
-			this.to = "romeo.roldan.dcms@nhmfc.gov.ph";
+			this.to = "cbd.dcms@nhmfc.gov.ph";
 		} else if (rec == 171) { // COCMD
-			this.to = "jake.alpajaro.dcms@nhmfc.gov.ph";
+			this.to = "cocmd.dcms@nhmfc.gov.ph";
 		} else if (rec == 162) { // CORPLAN
-			this.to = "felix.bustos.dcms@nhmfc.gov.ph";
+			this.to = "corplan.dcms@nhmfc.gov.ph";
 		} else if (rec == 166) { // CSSG
-			this.to = "june.ramos.dcms@nhmfc.gov.ph";
+			this.to = "cssg.dcms@nhmfc.gov.ph";
 		} else if (rec == 159) { // CUSTODIAN
-			this.to = "romeo.roldan.dcms@nhmfc.gov.ph";
+			this.to = "custodian.dcms@nhmfc.gov.ph";
 		} else if (rec == 169) { // FAMG
-			this.to = "june.ramos.dcms@nhmfc.gov.ph";
+			this.to = "famg.dcms@nhmfc.gov.ph";
 		} else if (rec == 150) { // FUB
-			this.to = "felix.bustos.dcms@nhmfc.gov.ph";
+			this.to = "fub.dcms@nhmfc.gov.ph";
 		} else if (rec == 157) { // GSD
-			this.to = "lourdes.bacani.dcms@nhmfc.gov.ph";
-		} else if (rec == 158) { // HRD
-			this.to = "june.ramos.dcms@nhmfc.gov.ph";
+			this.to = "gsd.dcms@nhmfc.gov.ph";
+		} else if (rec == 158) { // HRD to change to SG
+			this.to = "sg.dcms@nhmfc.gov.ph";
 		} else if (rec == 154) { // INSURANCE
-			this.to = "june.ramos.dcms@nhmfc.gov.ph";
+			this.to = "insurance.dcms@nhmfc.gov.ph";
 		} else if (rec == 164) { // LEGAL
-			this.to = "lourdes.bacani.dcms@nhmfc.gov.ph";
+			this.to = "legal.dcms@nhmfc.gov.ph";
 		} else if (rec == 175) { // MAD
-			this.to = "rose.jose.dcms@nhmfc.gov.ph";
+			this.to = "mad.dcms@nhmfc.gov.ph";
 		} else if (rec == 161) { // OEVP
-			this.to = "felix.bustos.dcms@nhmfc.gov.ph";
+			this.to = "oevp.dcms@nhmfc.gov.ph";
 		} else if (rec == 172) { // PAMD
-			this.to = "felix.bustos.dcms@nhmfc.gov.ph";
+			this.to = "pamd.dcms@nhmfc.gov.ph";
 		} else if (rec == 153) { // RASD
-			this.to = "jake.alpajaro.dcms@nhmfc.gov.ph";
+			this.to = "rasd.dcms@nhmfc.gov.ph";
 		} else if (rec == 160) { // RECORDS
-			this.to = "lourdes.bacani.dcms@nhmfc.gov.ph";
+			this.to = "records.dcms@nhmfc.gov.ph";
 		} else if (rec == 168) { // SPD
-			this.to = "rose.jose.dcms@nhmfc.gov.ph";
+			this.to = "spd.dcms@nhmfc.gov.ph";
 		}
 
 		setTo(to);

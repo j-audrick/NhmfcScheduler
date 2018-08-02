@@ -24,7 +24,7 @@
 	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/xlxpScanner.jar"/>
 	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/xlxpScannerUtils.jar"/>
 	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/simple-xml-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Downloads/joda-time-2.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/nhmfcSchedulerUtilsv5(testing).jar"/>
+	<classpathentry kind="lib" path="D:/Downloads/joda-time-2.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QPS-AUDRICK/Desktop/JAR/nhmfcSchedulerUtilsv5.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

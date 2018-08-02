@@ -96,19 +96,19 @@ public class Utilities {
 			}
 		}
 		
-		System.out.println(duedate.getTime().toString());
-		System.out.println(TAT);
-		
 		if (isHoliday(duedate, holdaylist) < 32400) {
-			TAT = TAT + isHoliday(duedate, holdaylist);
+			if((TAT + isHoliday(duedate, holdaylist)) > 0) {
+				TAT = TAT + isHoliday(duedate, holdaylist);
+			}else {
+				TAT = TAT + isHol(duedate, holdaylist);
+			}
+			
 		}
-		System.out.println(TAT);
-		System.out.println(duedate.getTime().toString());
-		System.out.println("----");
 		// if the due date falls on holiday or weekend - change to the earliest
 		// acceptable date and set to 8AM (start of working hours) of that day
 
 		if (TAT < 32400) {
+			
 			Date d = duedate.getTime();
 			duedate.add(Calendar.SECOND, (int) TAT);
 			Calendar dc = Calendar.getInstance();
@@ -125,7 +125,7 @@ public class Utilities {
 			// collect ung difference before add and 5pm of that date -date2
 			int seconddiff = (int) ChronoUnit.SECONDS.between(dc.toInstant(), dx.toInstant());
 
-			if (firstdiff > seconddiff) {
+			if (firstdiff >= seconddiff) {
 				dc.set(Calendar.HOUR_OF_DAY, 0);
 				dc.set(Calendar.MINUTE, 0);
 				dc.set(Calendar.SECOND, 0);
@@ -136,14 +136,15 @@ public class Utilities {
 				}
 				dc.add(Calendar.SECOND, firstdiff - seconddiff);
 				duedate.setTime(dc.getTime());
-			}
+			}	
 			deadline = duedate.getTime().toString(); // end - return this
 		} else {
 			while (TAT >= 32400) { // 32400 is equal to 9 hrs equal to 1 day
-				System.out.println(duedate.getTime().toString());
 				if (isHoliday(duedate, holdaylist) == 32400 || isWeekEnd(duedate)) {
+					System.out.println(duedate.getTime().toString());
 					while (isHoliday(duedate, holdaylist) == 32400 || isWeekEnd(duedate)) {
 						duedate.add(Calendar.DATE, 1);
+						System.out.println(duedate.getTime().toString());
 					}
 				} else {
 					TAT = TAT - 32400;
@@ -151,8 +152,12 @@ public class Utilities {
 					while (isHoliday(duedate, holdaylist) == 32400 || isWeekEnd(duedate)) {
 						duedate.add(Calendar.DATE, 1);
 					}
-					if (isHoliday(duedate, holdaylist) < 32400 ) { //newly added
-						TAT = TAT + isHoliday(duedate, holdaylist);
+					if (isHoliday(duedate, holdaylist) < 32400) {
+						if((TAT + isHoliday(duedate, holdaylist)) > 0) {
+							TAT = TAT + isHol(duedate, holdaylist);
+						}else {
+							TAT = TAT + isHol(duedate, holdaylist);
+						}
 					}
 				}
 			}
@@ -173,7 +178,7 @@ public class Utilities {
 			// collect ung difference before add and 5pm of that date -date2
 			int seconddiff = (int) ChronoUnit.SECONDS.between(dc.toInstant(), dx.toInstant());
 
-			if (firstdiff > seconddiff) {
+			if (firstdiff >= seconddiff) {
 				dc.set(Calendar.HOUR_OF_DAY, 0);
 				dc.set(Calendar.MINUTE, 0);
 				dc.set(Calendar.SECOND, 0);
@@ -225,6 +230,13 @@ public class Utilities {
 			String eHour = (eHInt > 9 ? eHInt.toString() : "0" + eHInt.toString());
 			String eMin = (hol.getEndMinuteInt() > 9 ? hol.getEndMinuteInt().toString(): "0" + hol.getEndMinuteInt().toString());
 			
+			if(hol.getStartHourInt() < 8) {
+				sMin = "00";
+			}
+			
+			if (hol.getEndHourInt() > 16) {
+				eMin = "00";
+			}
 			hList.add(new String[] {
 				sMonth + "-" + sDay + "-" + Year.now().getValue() + " " + 
 				sHour + ":" + sMin + ":00",
@@ -254,23 +266,80 @@ public class Utilities {
 			stcalhol.setTime(sthol);
 			edcalhol.setTime(edhol);
 			cal2.setTime(date);
+			
+			Calendar eob = Calendar.getInstance();
+			eob.setTime(edhol);
+			eob.set(Calendar.HOUR_OF_DAY, 0);
+			eob.set(Calendar.MINUTE, 0);
+			eob.set(Calendar.SECOND, 0);
+			eob.add(Calendar.HOUR, 17);
 
 			ishol = (stcalhol.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)
 					&& stcalhol.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) &&
 					(edcalhol.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)
-					&& edcalhol.get(Calendar.YEAR) == cal2.get(Calendar.YEAR));
+					&& edcalhol.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)); //checking if start and end date is same day and same with the cdate
 			if (ishol) {
-				totalMins = (int) ChronoUnit.SECONDS.between(stcalhol.toInstant(), edcalhol.toInstant());
+				if(isWithinRange(cal2,stcalhol,edcalhol)) {
+					if(edcalhol.before(eob)) {
+						Integer rmnwt = 0; Integer rmnht = 0;
+						rmnwt = (int) ChronoUnit.SECONDS.between(edcalhol.toInstant(), eob.toInstant()) * -1;
+						rmnht = (cdate.before(stcalhol)?(int) ChronoUnit.SECONDS.between(stcalhol.toInstant(), edcalhol.toInstant()):(int) ChronoUnit.SECONDS.between(cdate.toInstant(), edcalhol.toInstant()));
+						totalMins = rmnwt + rmnht;
+						break;
+					}else {
+						totalMins = (int) ChronoUnit.SECONDS.between(cal2.toInstant(), edcalhol.toInstant());
+						break;
+					}
+					
+				}else {
+					totalMins = (int) ChronoUnit.SECONDS.between(stcalhol.toInstant(), edcalhol.toInstant());
+				}
 				break;
 			}else if (isWithinRange(cal2,stcalhol,edcalhol) || ((stcalhol.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR) && stcalhol.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) || (edcalhol.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR) && edcalhol.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)))) {
 				totalMins = 32400;
 				break;
 			}
 		}
-		System.out.println(totalMins);
 		return totalMins;
 	}
 
+	public static int isHol(Calendar cdate, List<String[]> holdaylist) throws Exception {
+		List<String[]> holidays = holdaylist;
+
+		// Convert CDATE and List to a date format
+		DateFormat format = new SimpleDateFormat("E MMM d HH:mm:ss z yyyy");
+		DateFormat dfrmt = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+		Date date = format.parse(cdate.getTime().toString());
+		int totalMins = 0;
+		boolean ishol = false;
+		for (String[] temp : holidays) {
+			Date sthol = dfrmt.parse(temp[0]);
+			Date edhol = dfrmt.parse(temp[1]);
+			Calendar stcalhol = Calendar.getInstance();
+			Calendar edcalhol = Calendar.getInstance();
+			Calendar cal2 = Calendar.getInstance();
+			stcalhol.setTime(sthol);
+			edcalhol.setTime(edhol);
+			cal2.setTime(date);
+			
+			Calendar eob = Calendar.getInstance();
+			eob.setTime(edhol);
+			eob.set(Calendar.HOUR_OF_DAY, 0);
+			eob.set(Calendar.MINUTE, 0);
+			eob.set(Calendar.SECOND, 0);
+			eob.add(Calendar.HOUR, 17);
+
+			ishol = (stcalhol.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)
+					&& stcalhol.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) &&
+					(edcalhol.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)
+					&& edcalhol.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)); //checking if start and end date is same day and same with the cdate
+			if (ishol) {
+					totalMins = (int) ChronoUnit.SECONDS.between(stcalhol.toInstant(), edcalhol.toInstant());
+					break;
+				}
+		}		
+		return totalMins;
+	}
 	public static boolean isWeekEnd(Calendar cdate) throws ParseException {
 		int dayofWeek = cdate.get(Calendar.DAY_OF_WEEK);
 		if (dayofWeek == 1 || dayofWeek == 7) {
@@ -368,9 +437,7 @@ public class Utilities {
 		System.out.println("Roster count:" + roster.fetchCount());
 
 		while (query.hasNext()) {
-
 			VWWorkObject vwWorkObjectItem = (VWWorkObject) query.next();
-
 			if (vwWorkObjectItem.getFieldValue("F_QueueWPClassId").toString().equals("2")
 					&& vwWorkObjectItem.getFieldValue("F_Locked").toString().equals("0")) {
 				itr++;
